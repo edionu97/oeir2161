@@ -35,5 +35,5 @@ public class Medie {
 	}
 
 	private Elev elev;
-	private double medie;
+	private double medie ;
 }
