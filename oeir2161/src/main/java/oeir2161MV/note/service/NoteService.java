@@ -56,7 +56,7 @@ public class NoteService {
         return clasa.getClasa();
     }
 
-    public List<Corigent> getCorigenti() {
+    public List<Corigent> getCorigenti() throws ClasaException {
         List<Corigent> corigenti = new ArrayList<>();
 
         if (clasa.getClasa().isEmpty()) {
@@ -82,6 +82,8 @@ public class NoteService {
                     }
                 }
             }
+
+
             if (corigent.getNrMaterii() > 0) {
                 int i = 0;
                 while (i < corigenti.size() && corigenti.get(i).getNrMaterii() < corigent.getNrMaterii())
@@ -105,7 +107,7 @@ public class NoteService {
 
         List<Medie> medii = new LinkedList<>();
 
-        if (clasa.getClasa().isEmpty()) {
+        if (clasa.getClasa() == null || clasa.getClasa().isEmpty()) {
             throw new ClasaException(Constants.emptyRepository);
         }
 
