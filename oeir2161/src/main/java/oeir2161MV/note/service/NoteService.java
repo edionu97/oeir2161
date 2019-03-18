@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class NoteService {
 
@@ -30,7 +31,6 @@ public class NoteService {
     public void readElevi(String fisier) {
         elevi.readElevi(fisier);
     }
-
 
     public void addElev(Elev elev) {
         elevi.addElev(elev);
@@ -94,7 +94,11 @@ public class NoteService {
                     corigenti.add(i, corigent);
             }
         }
-        return corigenti;
+
+
+        return corigenti.stream().sorted((x,y)->
+            y.getNrMaterii() - x.getNrMaterii() == 0 ? x.getNumeElev().compareTo(y.getNumeElev()) : y.getNrMaterii() - x.getNrMaterii()
+        ).collect(Collectors.toList());
     }
 
     public List<Medie> calculeazaMedii() throws ClasaException {
