@@ -22,10 +22,7 @@ import oeir2161MV.note.controller.NoteController;
 
 public class StartApp {
 
-    /**
-     * @param args
-     * @throws ClasaException
-     */
+
     public static void main(String[] args) throws ClasaException {
         NoteController ctrl = new NoteController();
 
