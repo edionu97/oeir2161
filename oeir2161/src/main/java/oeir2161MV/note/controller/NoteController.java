@@ -53,7 +53,11 @@ public class NoteController {
 	}
 	
 	public void afiseazaClasa() {
+		service.afiseazaClasa();
+	}
 
+	public void saveInFile(){
+		service.saveInFile();
 	}
 	
 	public void readElevi(String fisier) {

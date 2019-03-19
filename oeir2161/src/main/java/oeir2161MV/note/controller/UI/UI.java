@@ -62,6 +62,7 @@ public class UI {
                         nota
                 ));
 
+                controller.saveInFile();
                 System.out.println(controller.getNote().size());
                 controller.creeazaClasa(controller.getElevi(), controller.getNote());
 

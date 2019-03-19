@@ -10,6 +10,7 @@ import oeir2161MV.note.repository.interfaces.NoteRepository;
 import oeir2161MV.note.utils.Constants;
 import oeir2161MV.note.utils.exceptions.ClasaException;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -25,7 +26,7 @@ public class NoteService {
     }
 
     public void readNote(String fisier) {
-        note.readNote(fisier);
+        note.readNote((this.fisier = fisier));
     }
 
     public void readElevi(String fisier) {
@@ -161,6 +162,28 @@ public class NoteService {
         }
     }
 
+    public void saveInFile(){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(fisier, false))){
+            note.getNote().forEach(mark->{
+                try {
+                    writer.write(
+                            String.format(
+                                    "%s;%s;%s\n",
+                                    mark.getNrmatricol()+"",
+                                    mark.getMaterie(),
+                                    mark.getNota()+""
+                            )
+                    );
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private String fisier;
     private NoteRepository note;
     private ClasaRepository clasa;
     private EleviRepository elevi;
