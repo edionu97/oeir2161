@@ -53,7 +53,7 @@ public class NoteRepositoryMockTest {
 
     @Test()
     public void testCaseMarkIsOK() throws ClasaException{
-        final Nota nota = new Nota(1, materie, 10);
+        final Nota nota = new Nota(1, materie, 9);
         this.noteRepositoryMock.addNota(nota);
         assertEquals(noteRepositoryMock.getNote().size(), 1);
     }
@@ -73,7 +73,7 @@ public class NoteRepositoryMockTest {
 
     @Test(expected = ClasaException.class)
     public void testCaseNrMatricolNotOK1 () throws  ClasaException{
-        final Nota nota = new Nota(Constants.minNrmatricol - 1, materie, 1);
+        final Nota nota = new Nota(Constants.minNrmatricol - 1, materie, 10);
         this.noteRepositoryMock.addNota(nota);
     }
 
