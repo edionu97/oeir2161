@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ClasaRepository</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">oeir2161MV.note.repository.interfaces</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ClasaRepository (oeir2161MV.note.repository.interfaces)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ClasaRepository</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package oeir2161MV.note.repository.interfaces;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import oeir2161MV.note.model.Corigent;
+<i>4</i>&nbsp;import oeir2161MV.note.model.Elev;
+<i>5</i>&nbsp;import oeir2161MV.note.model.Medie;
+<i>6</i>&nbsp;import oeir2161MV.note.model.Nota;
+<i>7</i>&nbsp;import oeir2161MV.note.utils.exceptions.ClasaException;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import java.util.HashMap;
+<i>10</i>&nbsp;import java.util.List;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public interface ClasaRepository  extends  Repository{
+<i>13</i>&nbsp;	
+<i>14</i>&nbsp;	void creazaClasa(List&lt;Elev&gt; elevi, List&lt;Nota&gt; note);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;	HashMap&lt;Elev, HashMap&lt;String, List&lt;Double&gt;&gt;&gt; getClasa();
+<i>17</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-04-16 17:17</div>
+</div>
+</body>
+</html>

@@ -117,39 +117,50 @@ public class NoteService {
             Medie medie = new Medie();
             medie.setElev(elev);
 
-            int nrMaterii = 0;
-            double sumaMedii = 0;
-
-            for (String materie : clasa.getClasa().get(elev).keySet()) {
-                nrMaterii++;
-                List<Double> noteElev = clasa.getClasa().get(elev).get(materie);
-                int nrNote = noteElev.size();
-                int i = 0;
-                double suma = 0;
-                if (nrNote > 0) {
-                    while (i < nrNote) {
-                        double nota = noteElev.get(i);
-                        suma += nota;
-                        i++;
-                    }
-
-                    if(suma / i < 4.5){
-                        nrMaterii  = 0;
-                        break;
-                    }
-                    sumaMedii = sumaMedii + suma / i;
-                }
-            }
-
-            if (nrMaterii > 0 && sumaMedii / nrMaterii >= 4.5) {
-                medie.setMedie(sumaMedii / nrMaterii);
-            }
+           medie.setMedie(
+                   calculateMedie(elev)
+           );
 
             medii.add(medie);
         }
 
         return medii;
     }
+
+
+    public int calculateMedie(final Elev elev){
+
+        int nrMaterii = 0; // (1)
+        double sumaMedii = 0;
+
+        for (String materie : clasa.getClasa().get(elev).keySet()) {// <2>
+            nrMaterii++; //3
+            List<Double> noteElev = clasa.getClasa().get(elev).get(materie);
+            int nrNote = noteElev.size();
+            int i = 0;
+            double suma = 0;
+            if (nrNote > 0) { // <4>
+                while (i < nrNote) { // <5>
+                    double nota = noteElev.get(i); // (6)
+                    suma += nota;
+                    i++;
+                }
+
+                if(suma / i < 4.5){ // <7>
+                    nrMaterii  = 0; // (8)
+                    break;
+                }
+                sumaMedii = sumaMedii + suma / i; // (9)
+            }
+        }
+
+
+            if (nrMaterii > 0 && sumaMedii / nrMaterii >= 4.5) { // <10>
+           return (int)sumaMedii / nrMaterii; // (11)
+        }
+
+        return 0; // (12)
+    } // (13)
 
     public void afiseazaClasa() {
         for (Elev elev : clasa.getClasa().keySet()) {
