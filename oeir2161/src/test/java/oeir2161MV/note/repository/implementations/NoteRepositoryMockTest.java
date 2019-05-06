@@ -26,6 +26,7 @@ public class NoteRepositoryMockTest {
         this.noteRepositoryMock.getNote().clear();
     }
 
+    //ecp
     @Test
     public void testCheckMarkIsSuccessfullyAdded() throws ClasaException {
         final Nota nota = new Nota(1, materie, 10);
@@ -33,6 +34,7 @@ public class NoteRepositoryMockTest {
         assertEquals(this.noteRepositoryMock.getNote().size(),1);
     }
 
+    //ecp non valid
     @Test(expected = ClasaException.class)
     public  void testCheckExceptionIsThrownIfNrMatricolNotFound() throws ClasaException{
         final Nota nota = new Nota(-1, materie, 10);
@@ -58,6 +60,7 @@ public class NoteRepositoryMockTest {
         assertEquals(noteRepositoryMock.getNote().size(), 1);
     }
 
+    //bva
     @Test()
     public void testCaseMarkIsGreaterThanOK1() throws ClasaException {
         final Nota nota = new Nota(1, materie, 1);
@@ -65,6 +68,7 @@ public class NoteRepositoryMockTest {
         assertEquals(noteRepositoryMock.getNote().size(), 1);
     }
 
+    //bva non valid
     @Test(expected = ClasaException.class)
     public void testCaseNrMatricolNotOK () throws  ClasaException{
         final Nota nota = new Nota(Constants.maxNrmatricol + 1, materie, 1);

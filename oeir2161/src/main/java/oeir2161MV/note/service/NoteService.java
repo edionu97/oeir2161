@@ -61,7 +61,7 @@ public class NoteService {
         List<Corigent> corigenti = new ArrayList<>();
 
         if (clasa.getClasa().isEmpty()) {
-            return corigenti;
+            throw new  ClasaException("Clasa invalida!");
         }
 
         for (Elev elev : clasa.getClasa().keySet()) {
